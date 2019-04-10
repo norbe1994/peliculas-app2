@@ -14,8 +14,9 @@ export class PeliculasService {
     let hasta = new Date()
     // mover una semana al futuro
     hasta.setDate(hasta.getDate() + 7)
-    let desdeString = `${desde.getFullYear()}-${desde.getMonth()}-${desde.getDate()}`
-    let hastaString = `${hasta.getFullYear()}-${hasta.getMonth()}-${hasta.getDate()}`
+    // meses en js empiezan en cero, ergo + 1
+    let desdeString = `${desde.getFullYear()}-${desde.getMonth() + 1}-${desde.getDate()}`
+    let hastaString = `${hasta.getFullYear()}-${hasta.getMonth() + 1}-${hasta.getDate()}`
     let url = `${
       this.urlMoviedb
     }/discover/movie?primary_release_date.gte=${desdeString}&primary_release_date.lte=${hastaString}&api_key=${
