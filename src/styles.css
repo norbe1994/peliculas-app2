@@ -66,3 +66,11 @@ body {
 .fadeIn {
   animation-name: fadeIn;
 }
+
+.text-green {
+  color: green;
+}
+
+.text-red {
+  color: red;
+}

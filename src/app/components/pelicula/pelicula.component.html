@@ -1,3 +1,31 @@
-<p>
-  pelicula works!
-</p>
+<div *ngIf="pelicula" class="container main-container animated fadeIn fast">
+
+  <h1>{{ pelicula.title }}</h1>
+
+  <div class="row">
+
+    <div class="col-md-5">
+      <img [src]="pelicula | noimage:true" [alt]="pelicula.original_title" class="img-thumbnail img-fluid">
+    </div>
+
+    <div class="col-md-7">
+      <h3>Sinopsis</h3>
+      <hr>
+      <p class="text-justify">
+        {{pelicula.overview }}
+      </p>
+      <h5>Frase celebre</h5>
+      <p>
+        {{ pelicula.tagline }}
+      </p>
+      <p>
+        Calificación: <span class="badge"
+          [ngClass]="{'badge-success': pelicula.vote_average > 6.5, 'badge-danger':pelicula.vote_average < 4.5, 'badge-secondary': pelicula.vote_average >= 4.5 && pelicula.vote_average <= 6.5 }">{{ pelicula.vote_average }}</span>
+      </p>
+      <p [ngClass]="{'text-green': pelicula.revenue > pelicula.budget, 'text-red':pelicula.revenue < pelicula.budget }">
+        Ingresos netos: <span>{{ pelicula.revenue - pelicula.budget | currency}}</span>
+      </p>
+    </div>
+
+  </div>
+</div>
