@@ -11,7 +11,8 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component'
 import { PeliculasService } from './providers/peliculas.service'
 import { BuscarComponent } from './components/buscar/buscar.component'
 // pipes
-import { NoimagePipe } from './pipes/noimage.pipe'
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { GaleriaComponent } from './components/home/galeria.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NoimagePipe } from './pipes/noimage.pipe'
     HomeComponent,
     PeliculaComponent,
     BuscarComponent,
-    NoimagePipe
+    NoimagePipe,
+    GaleriaComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientJsonpModule, HttpClientModule],
   providers: [PeliculasService],
