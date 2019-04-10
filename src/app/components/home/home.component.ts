@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { PeliculasService } from 'src/app/providers/peliculas.service'
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor(public _ps: PeliculasService) {
+    this._ps.getCartelera().subscribe(data => {
+      console.log(data)
+    })
   }
 
+  ngOnInit() {}
 }
