@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core'
 })
 export class GaleriaComponent {
   @Input('peliculas') peliculas: any[]
+  @Input('titulo') titulo: string
 
   constructor() {}
 }
