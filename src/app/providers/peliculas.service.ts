@@ -23,7 +23,7 @@ export class PeliculasService {
       this.apikey
     }&language=es&callback=JSONP_CALLBACK`
 
-    return this.http.jsonp(url, '').pipe(map(res => res))
+    return this.http.jsonp(url, '').pipe(map((res: any) => res.results))
   }
 
   getPopulares() {
@@ -31,7 +31,17 @@ export class PeliculasService {
       this.apikey
     }&language=es&callback=JSONP_CALLBACK`
 
-    return this.http.jsonp(url, '').pipe(map(res => res))
+    return this.http.jsonp(url, '').pipe(map((res: any) => res.results))
+  }
+
+  getPopularesNinos() {
+    let url = `${
+      this.urlMoviedb
+    }/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${
+      this.apikey
+    }&language=es&callback=JSONP_CALLBACK`
+
+    return this.http.jsonp(url, '').pipe(map((res: any) => res.results))
   }
 
   buscarPelicula(texto: string) {
@@ -39,6 +49,6 @@ export class PeliculasService {
       this.apikey
     }&language=es&callback=JSONP_CALLBACK`
 
-    return this.http.jsonp(url, '').pipe(map(res => res))
+    return this.http.jsonp(url, '').pipe(map((res: any) => res.results))
   }
 }
