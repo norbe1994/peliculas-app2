@@ -12,7 +12,8 @@
   <div class="row animated fadeIn fast">
     <div class="card-columns">
 
-      <div class="card puntero" *ngFor="let pelicula of _ps.peliculas" [routerLink]="['/pelicula', pelicula.id]">
+      <div class="card puntero" *ngFor="let pelicula of _ps.peliculas"
+        [routerLink]="['/pelicula', pelicula.id, termino]">
         <img [src]="pelicula | noimage" class="card-img-top" [alt]="pelicula.original_title">
         <div class="card-body">
           <h5 class="card-title">{{ pelicula.title }}</h5>

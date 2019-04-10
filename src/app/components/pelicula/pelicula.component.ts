@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { PeliculasService } from 'src/app/providers/peliculas.service'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { Location } from '@angular/common'
 
 @Component({
@@ -10,12 +10,18 @@ import { Location } from '@angular/common'
 })
 export class PeliculaComponent {
   public pelicula: any
+  private termino: string
+
   constructor(
     public _ps: PeliculasService,
     private activatedRoute: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {
     this.activatedRoute.params.subscribe(params => {
+      if (params['termino']) {
+        this.termino = params['termino']
+      }
       this._ps.getPelicula(params['id']).subscribe(data => {
         this.pelicula = data
         console.log(data)
@@ -24,7 +30,11 @@ export class PeliculaComponent {
   }
 
   irAtras() {
-    this.location.back()
+    if (this.termino) {
+      this.router.navigate(['/buscar', this.termino])
+    } else {
+      this.location.back()
+    }
   }
 
   irAPagina() {
