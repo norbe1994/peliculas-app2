@@ -4,7 +4,7 @@
 
   <div class="row">
 
-    <div class="col-md-5">
+    <div class="col-md-5" [ngClass]="{'puntero': pelicula.homepage}" (click)="irAPagina()">
       <img [src]="pelicula | noimage:true" [alt]="pelicula.original_title" class="img-thumbnail img-fluid">
     </div>
 

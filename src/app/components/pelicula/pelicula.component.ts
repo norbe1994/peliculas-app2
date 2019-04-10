@@ -18,11 +18,18 @@ export class PeliculaComponent {
     this.activatedRoute.params.subscribe(params => {
       this._ps.getPelicula(params['id']).subscribe(data => {
         this.pelicula = data
+        console.log(data)
       })
     })
   }
 
   irAtras() {
     this.location.back()
+  }
+
+  irAPagina() {
+    if (this.pelicula.homepage) {
+      window.open(this.pelicula.homepage, '_blank')
+    }
   }
 }
