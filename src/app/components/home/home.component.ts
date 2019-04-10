@@ -7,9 +7,10 @@ import { PeliculasService } from 'src/app/providers/peliculas.service'
   styles: []
 })
 export class HomeComponent implements OnInit {
+  public cartelera: any[] = []
   constructor(public _ps: PeliculasService) {
-    this._ps.getCartelera().subscribe(data => {
-      console.log(data)
+    this._ps.getCartelera().subscribe((data: any) => {
+      this.cartelera = data.results
     })
   }
 
