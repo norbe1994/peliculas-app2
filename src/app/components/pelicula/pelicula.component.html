@@ -14,7 +14,7 @@
       <p class="text-justify">
         {{pelicula.overview }}
       </p>
-      <h5>Frase celebre</h5>
+      <h5 *ngIf="pelicula.tagline">Frase celebre</h5>
       <p>
         {{ pelicula.tagline }}
       </p>
@@ -22,9 +22,12 @@
         Calificación: <span class="badge"
           [ngClass]="{'badge-success': pelicula.vote_average > 6.5, 'badge-danger':pelicula.vote_average < 4.5, 'badge-secondary': pelicula.vote_average >= 4.5 && pelicula.vote_average <= 6.5 }">{{ pelicula.vote_average }}</span>
       </p>
-      <p [ngClass]="{'text-green': pelicula.revenue > pelicula.budget, 'text-red':pelicula.revenue < pelicula.budget }">
-        Ingresos netos: <span>{{ pelicula.revenue - pelicula.budget | currency}}</span>
-      </p>
+      <div *ngIf="pelicula.revenue && pelicula.budget">
+        <p
+          [ngClass]="{'text-green': pelicula.revenue > pelicula.budget, 'text-red':pelicula.revenue < pelicula.budget }">
+          Ingresos netos: <span>{{ pelicula.revenue - pelicula.budget | currency}}</span>
+        </p>
+      </div>
       <div class="btn btn-danger btn-block" (click)="irAtras()">
         Regresar
       </div>
