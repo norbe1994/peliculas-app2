@@ -7,10 +7,11 @@ import { NavbarComponent } from './components/navbar/navbar.component'
 import { HomeComponent } from './components/home/home.component'
 import { PeliculaComponent } from './components/pelicula/pelicula.component'
 // servicios
-import { PeliculasService } from './providers/peliculas.service'
+import { PeliculasService } from './providers/peliculas.service';
+import { BuscarComponent } from './components/buscar/buscar.component'
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, PeliculaComponent],
+  declarations: [AppComponent, NavbarComponent, HomeComponent, PeliculaComponent, BuscarComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [PeliculasService],
   bootstrap: [AppComponent]
