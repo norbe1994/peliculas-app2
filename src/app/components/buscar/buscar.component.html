@@ -1,3 +1,11 @@
-<p>
-  buscar works!
-</p>
+<div class="container main-container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Buscar:</label>
+        <input [(ngModel)]="termino" name="termino" (keyup.enter)="buscar()" placeholder="Buscar una película"
+          type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+</div>

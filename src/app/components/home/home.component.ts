@@ -12,14 +12,17 @@ export class HomeComponent implements OnInit {
   public popularesNinos: any[] = []
   constructor(public _ps: PeliculasService) {
     this._ps.getCartelera().subscribe(data => {
+      console.log(data[0])
       this.cartelera = data
     })
 
     this._ps.getPopulares().subscribe(data => {
+      console.log(data[0])
       this.populares = data
     })
 
     this._ps.getPopularesNinos().subscribe(data => {
+      console.log(data[0])
       this.popularesNinos = data
     })
   }
