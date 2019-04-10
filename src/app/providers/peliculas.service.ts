@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators'
 export class PeliculasService {
   private apikey: string = '4fa158e44a3f1a9dd31e58b7f97449c8'
   private urlMoviedb: string = 'https://api.themoviedb.org/3'
+  public peliculas: any[] = []
 
   constructor(private http: HttpClient) {}
 
@@ -49,6 +50,11 @@ export class PeliculasService {
       this.apikey
     }&language=es&callback=JSONP_CALLBACK`
 
-    return this.http.jsonp(url, '').pipe(map((res: any) => res.results))
+    return this.http.jsonp(url, '').pipe(
+      map((res: any) => {
+        this.peliculas = res.results
+        return res.results
+      })
+    )
   }
 }
