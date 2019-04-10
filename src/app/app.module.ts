@@ -9,11 +9,19 @@ import { HomeComponent } from './components/home/home.component'
 import { PeliculaComponent } from './components/pelicula/pelicula.component'
 // servicios
 import { PeliculasService } from './providers/peliculas.service'
-import { BuscarComponent } from './components/buscar/buscar.component';
+import { BuscarComponent } from './components/buscar/buscar.component'
+// pipes
 import { NoimagePipe } from './pipes/noimage.pipe'
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, PeliculaComponent, BuscarComponent, NoimagePipe],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    PeliculaComponent,
+    BuscarComponent,
+    NoimagePipe
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientJsonpModule, HttpClientModule],
   providers: [PeliculasService],
   bootstrap: [AppComponent]
