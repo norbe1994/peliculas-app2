@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { PeliculasService } from 'src/app/providers/peliculas.service'
 import { ActivatedRoute } from '@angular/router'
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-pelicula',
   templateUrl: './pelicula.component.html',
   styles: []
 })
-export class PeliculaComponent implements OnInit {
+export class PeliculaComponent {
   public pelicula: any
-  constructor(public _ps: PeliculasService, private activatedRoute: ActivatedRoute) {
+  constructor(
+    public _ps: PeliculasService,
+    private activatedRoute: ActivatedRoute,
+    private location: Location
+  ) {
     this.activatedRoute.params.subscribe(params => {
       this._ps.getPelicula(params['id']).subscribe(data => {
         this.pelicula = data
@@ -17,5 +22,7 @@ export class PeliculaComponent implements OnInit {
     })
   }
 
-  ngOnInit() {}
+  irAtras() {
+    this.location.back()
+  }
 }
